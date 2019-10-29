@@ -12,22 +12,12 @@ import java.util.ArrayList;
 public class UrlListAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<String> itemsArrayList;
+    private ArrayList<UrlItem> itemsArrayList;
 
-    public UrlListAdapter(Context context, ArrayList<String> itemsArrayList) {
+    public UrlListAdapter(Context context, ArrayList<UrlItem> itemsArrayList) {
 
         this.context = context;
         this.itemsArrayList = itemsArrayList;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return getCount();
-    }
-    @Override
-    public int getItemViewType(int position) {
-
-        return position;
     }
 
     @Override
@@ -62,7 +52,7 @@ public class UrlListAdapter extends BaseAdapter {
             // the getTag returns the viewHolder object set as a tag to the view
             holder = (ViewHolder)convertView.getTag();
         }
-        holder.txtTitle.setText(itemsArrayList.get(position));
+        holder.txtTitle.setText(itemsArrayList.get(position).url);
 
         return convertView;
     }
